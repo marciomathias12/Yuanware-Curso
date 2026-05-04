@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-red: #ff0000;
+  --color-brand-orange: #ff6a00;
+  --color-brand-amber: #ffbf00;
+  --color-brand-gold: #ffd700;
+  --color-deep-black: #050505;
+  --color-graphite: #1a1a1a;
+  
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-deep-black text-white antialiased selection:bg-brand-orange selection:text-white;
+    font-family: var(--font-sans);
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-3xl;
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-orange via-brand-amber to-brand-gold;
+  }
+
+  .bg-glow-warm {
+    background: radial-gradient(circle at center, rgba(255, 106, 0, 0.1) 0%, transparent 70%);
+  }
+
+  .glow-orange {
+    box-shadow: 0 0 20px rgba(255, 106, 0, 0.3);
+  }
+
+  .mask-vignette {
+    mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+  }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap');
